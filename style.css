@@ -1,0 +1,201 @@
+/* --- Variables y Estilos Globales --- */
+:root {
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --primary-color: #007bff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+}
+
+/* --- Modo Oscuro --- */
+body.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2a2a2a;
+    --header-bg: #252525;
+    --primary-color: #00aaff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Toggle de Modo Oscuro --- */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: none;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* --- Cabecera (Hero) --- */
+.hero {
+    background-color: var(--header-bg);
+    padding: 6rem 0 4rem;
+    text-align: center;
+    border-bottom: 1px solid var(--shadow);
+}
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+.hero-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+.hero-links a:hover {
+    color: var(--primary-color);
+}
+.hero-links i {
+    margin-right: 5px;
+}
+
+/* --- Sección de Proyectos --- */
+#projects {
+    padding: 4rem 0;
+    text-align: center;
+}
+#projects h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* --- Grid de Proyectos --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+/* --- MODIFICA ESTA REGLA --- */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    /* padding: 1.5rem; */   /* <-- COMENTA O BORRA ESTA LÍNEA */
+    padding: 0;             /* <-- AÑADE ESTA LÍNEA */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;       /* <-- AÑADE ESTA LÍNEA (importante para los bordes) */
+}
+
+/* --- AÑADE ESTAS NUEVAS REGLAS AL FINAL --- */
+
+/* Estilo para la imagen del proyecto */
+.project-image {
+    width: 100%;
+    height: 180px; /* Altura fija para que todas las tarjetas sean uniformes */
+    object-fit: cover; /* Recorta la imagen para que encaje, sin distorsionar */
+}
+
+/* Contenedor para el texto de la tarjeta */
+.project-content {
+    padding: 1.5rem; /* El padding que antes tenía la tarjeta */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Esto empuja el footer hacia abajo */
+}
+
+/* Ajusta los selectores de 'h3' y 'p' para que apunten dentro de .project-content */
+.project-content h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.project-content p {
+    flex-grow: 1; /* Empuja el footer de la tarjeta hacia abajo */
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.project-card h3 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+.project-card p {
+    flex-grow: 1; /* Empuja el footer de la tarjeta hacia abajo */
+    opacity: 0.8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+.project-footer a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.project-footer a:hover {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+}
+.project-footer span {
+    display: flex;
+    align-items: center;
+}
+.project-footer i {
+    margin-right: 4px;
+    color: #e8a843; /* Color de estrella */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
